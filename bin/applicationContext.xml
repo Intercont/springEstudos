@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="customerRepository" class="br.com.igor.repository.HibernateCustomerRepositoryImpl" />
+	
+	<!-- Injeção de dependencia -->
+	<bean name="customerService" class="br.com.igor.service.CustomerServiceImpl" autowire="byName"> <!-- byName será necessário que o name tenha o mesmo nome do Bean na propriedade -->
+		<!-- Setter Injection - name referencia a propriedade na classe, ref referencia o nome do bean aqui no applicationContext NESTE CASO -->
+<!-- 		<property name="customerRepository" ref="customerRepositoryBean"></property> -->
+		
+		<!-- Constructor Injection -->
+<!-- 		<constructor-arg index="0" ref="customerRepositoryBean"></constructor-arg> -->
+	</bean>
+</beans>
